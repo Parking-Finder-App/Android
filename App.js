@@ -1,8 +1,9 @@
 import { useMaterial3Theme } from '@pchmn/expo-material3-theme';
 import { useMemo } from 'react';
 import { useColorScheme, View } from 'react-native';
-import {  MD3DarkTheme, MD3LightTheme, Provider as PaperProvider, Text } from 'react-native-paper';
-import HomeScreen from './screens/homescreen';
+import { MD3DarkTheme, MD3LightTheme, Provider as PaperProvider, Text } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import MyComponent from './components/Navbar';
 
 export default function App() {
   const colorScheme = useColorScheme();
@@ -15,12 +16,10 @@ export default function App() {
   );
 
   return (
-    <PaperProvider theme={paperTheme}>
-      <View>
-        <Text>
-          Hello
-        </Text>
-      </View>
-    </PaperProvider>
+    <NavigationContainer>
+      <PaperProvider theme={paperTheme}>
+        <MyComponent/>
+      </PaperProvider>
+    </NavigationContainer>
   );
 }
